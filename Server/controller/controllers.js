@@ -1,14 +1,43 @@
+require('dotenv').config();
 const Blog = require('../model/Blog');
+const nodemailer = require('nodemailer');
 
 const test = (req, res) => {
-  res.status(200).send('Hello World');
+  res.status(200).json({ message: 'Hello World' });
 };
 
-const send_mail = (req, res) => {
+const send_mail = async (req, res) => {
   try {
-    // handle sending email here
+    const { fullName, email, subject, message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      secure: true,
+      port: 465,
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: process.env.EMAIL,
+      subject: `${subject}`,
+      html: `<h1>Message from ${fullName}</h1> <br/> <p>Email:${email}</p> <br/> ${message}`,
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ message: 'Error sending message', err });
+      } else {
+        console.log(`Email sent: ${info.response}`);
+        res.status(200).json({ message: 'Message sent successfully', info });
+      }
+    });
   } catch (err) {
-    // handle errors
+    res.status(500).json({ message: 'Error sending message', err });
   }
 };
 

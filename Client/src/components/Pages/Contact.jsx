@@ -2,6 +2,7 @@ import { useState } from 'react';
 import location from '/icons/location.png';
 import mail from '/icons/mail.png';
 import phone from '/icons/Mobile.png';
+import { alert } from '../helper';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export default function Contact() {
     subject: '',
     message: '',
   });
+
+  const [btnTxt, setBtnTxt] = useState('SEND MESSAGE');
 
   const handleInputChange = function (e) {
     const { name, value } = e.target;
@@ -22,41 +25,80 @@ export default function Contact() {
     });
   };
 
+  const handleFormSubmit = async function (e) {
+    e.preventDefault();
+
+    // validate to check if the input fields were filled
+    const isNotValid = Object.values(formData).includes('');
+
+    if (isNotValid) return;
+
+    try {
+      setBtnTxt('SENDING...');
+      const res = await fetch('http://localhost:8080/api/send_mail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      console.log('data', data);
+
+      if (res.status === 200) {
+        alert('success', 'Message sent successfully');
+
+        setFormData({
+          fullName: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      }
+    } catch (err) {
+      console.log(err);
+      alert('error', 'Something went wrong');
+    } finally {
+      setBtnTxt('SEND MESSAGE');
+    }
+  };
+
   return (
     <section id="contact" className="contact mt-32 flex flex-col-reverse lg:flex-row items-start gap-6">
       <section className="left w-full">
         <h2 className="font-bold text-hdTxt text-2xl text-center lg:text-left">Contact Me</h2>
 
-        <form className="mt-3 bg-white p-6">
+        <form className="mt-3 bg-white p-6" onSubmit={handleFormSubmit}>
           <div className="fullName mb-8">
             <label htmlFor="fullName" className="block">
               Your Full Name (Required)
             </label>
-            <input type="text" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="fullName" value={formData.fullName} onChange={handleInputChange} />
+            <input type="text" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="fullName" value={formData.fullName} onChange={handleInputChange} required />
           </div>
 
           <div className="email mb-8">
             <label htmlFor="email" className="block">
               Your Email (Required)
             </label>
-            <input type="email" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="email" value={formData.email} onChange={handleInputChange} />
+            <input type="email" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="email" value={formData.email} onChange={handleInputChange} required />
           </div>
 
           <div className="subject mb-8">
             <label htmlFor="subject" className="block">
               Subject
             </label>
-            <input type="text" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="subject" value={formData.subject} onChange={handleInputChange} />
+            <input type="text" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="subject" value={formData.subject} onChange={handleInputChange} required />
           </div>
 
           <div className="message mb-8">
             <label htmlFor="message" className="block">
               Message
             </label>
-            <textarea cols="30" rows="10" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="message" value={formData.message} onChange={handleInputChange}></textarea>
+            <textarea cols="30" rows="10" className="outline-none mt-2 bg-modalBg px-3 py-2 rounded-md w-full" name="message" value={formData.message} onChange={handleInputChange} required></textarea>
           </div>
 
-          <button className="bg-cta px-3 py-1">SEND MESSAGE</button>
+          <button className="bg-cta px-3 py-1">{btnTxt}</button>
         </form>
       </section>
 

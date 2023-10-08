@@ -10,10 +10,7 @@ export default function Services() {
         <div className="bg-modalBg p-4 w-[300px] lg:p-8 rounded-md flex flex-col items-center">
           <img src={codingIcon} alt="coding icon" className="w-[50px] lg:w-auto" />
           <h3 className="text-hdTxt font-bold text-xl my-3">Frontend Development</h3>
-          <p className="text-txt text-center w-[300px] text-sm">
-            I create elegant and responsive user interfaces using modern web technologies such as HTML, CSS, and Javascript.
-            {/* I create elegant and responsive user interfaces using modern web technologies such as HTML, CSS, and Javascript. Your website will not only look stunning but also perform flawlessly on various devices. */}
-          </p>
+          <p className="text-txt text-center w-[300px] text-sm">I create elegant and responsive user interfaces using modern web technologies such as HTML, CSS, and Javascript.</p>
         </div>
 
         <div className="bg-modalBg p-4 w-[300px] lg:p-8 rounded-md flex flex-col items-center">

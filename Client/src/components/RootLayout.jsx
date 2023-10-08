@@ -1,6 +1,6 @@
 import RightNav from './Navbar/RightNav';
 import LeftNav from './Navbar/LeftNav';
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 import { Outlet } from 'react-router-dom';
 
 export const NavContext = createContext();
@@ -25,14 +25,6 @@ export default function RootLayout() {
       setToggle({ profileNav: false, mainNav: false });
     }
   };
-
-  // useEffect(() => {
-  //   const htmlEl = document.getElementById('root');
-
-  //   htmlEl.style.height = toggle.profileNav ? '150vh' : '100%';
-  //   htmlEl.style.overflow = 'hidden';
-
-  // }, [toggle.profileNav]);
 
   return (
     <NavContext.Provider value={{ toggle, handleNavToggle }}>

@@ -41,10 +41,6 @@ nav,
   transition: transform 1s ease;
 }
 
-/* div.bar {
-  transition: width 1s ease-in;
-} */
-
 .active {
   background-color: #ffb400;
 }

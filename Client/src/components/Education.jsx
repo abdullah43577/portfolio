@@ -2,7 +2,7 @@ export default function Education() {
   return (
     <section className="education__sect mt-32">
       <h2 className="font-bold text-hdTxt text-4xl text-center">Education</h2>
-      <p className="text-txt text-center max-w-full lg:w-[600px] mx-auto pt-3">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum</p>
+      <p className="text-txt text-center max-w-full lg:w-[600px] mx-auto pt-3">Educational qualifications I've earned over my course of study</p>
 
       <section className="information bg-modalBg p-8 mt-16">
         <section className="edu__one flex flex-col lg:flex-row justify-between border-b border-gray-300 pb-6">
