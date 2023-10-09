@@ -43,7 +43,7 @@ export default function Hero() {
       <img src={ellipse12} alt="ellipse" className="absolute top-[10%] left-[20%] lg:left-[50%]" />
       <img src={ellipse13} alt="ellipse" className="absolute bottom-[10%] left-[55%]" />
       <img src={ellipse15} alt="ellipse" className="absolute top-[8%] left-[8%]" />
-      <img src={ellipse16} alt="ellipse" className="absolute bottom-[10%] left-[8%]" />
+      <img src={ellipse16} alt="ellipse" className="absolute bottom-[10%] left-0 lg:left-[8%]" />
       <img src={polygon} alt="polygon" className="absolute bottom-[10%] right-[10px]" />
       <img src={rect1} alt="rectangle" className="absolute right-[10%] top-[10%]" />
       <img src={rect2} alt="rectangle" className="absolute bottom-[20%] right-[10%] lg:left-[40%]" />

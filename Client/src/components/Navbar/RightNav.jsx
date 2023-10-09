@@ -13,8 +13,8 @@ export default function RightNav() {
   const { toggle, handleNavToggle } = useContext(NavContext);
 
   return (
-    <section className="w-full h-[10vh] right-0 lg:w-[5%] absolute top-0 lg:top-[32px] lg:right-[32px] bg-modalBg p-1 flex flex-row items-center lg:flex-col gap-[20px] lg:gap-[200px] lg:h-[1200px] justify-between lg:justify-normal">
-      <section className="icon__container w-[50px] lg:w-full flex justify-center lg:mt-8 cursor-pointer">
+    <section className="w-full h-[10vh] right-0 lg:w-[5%] absolute top-0 lg:top-[32px] lg:right-[32px] bg-modalBg px-4 flex flex-row items-center lg:flex-col gap-[20px] lg:gap-[200px] lg:h-[1200px] justify-between lg:justify-normal lg:px-0">
+      <section className="icon__container w-[50px] lg:w-full flex justify-start lg:justify-center lg:mt-8 cursor-pointer">
         <img src={contrastIcon} alt="background toggle btn" />
       </section>
 
