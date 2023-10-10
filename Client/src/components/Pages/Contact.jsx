@@ -35,7 +35,7 @@ export default function Contact() {
 
     try {
       setBtnTxt('SENDING...');
-      const res = await fetch('https://reactmode.netlify.app/api/send_mail', {
+      const res = await fetch('https://portfolio-api-esvo.onrender.com/api/send_mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

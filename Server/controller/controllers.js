@@ -10,6 +10,10 @@ const send_mail = async (req, res) => {
   try {
     const { fullName, email, subject, message } = req.body;
 
+    if (!fullName || !email || !subject || !message) {
+      return res.status(400).json({ message: 'Error, bad request', status: 'please make sure you fill all the fields' });
+    }
+
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       secure: true,
@@ -24,7 +28,7 @@ const send_mail = async (req, res) => {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       subject: `${subject}`,
-      html: `<h1>Message from ${fullName}</h1> <br/> <p>Email:${email}</p> <br/> ${message}`,
+      html: `<h1>Message from ${fullName}</h1> <p>Email:${email}</p> <br/> ${message}`,
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
