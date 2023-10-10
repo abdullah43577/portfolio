@@ -78,7 +78,7 @@ export default function Portfolio() {
 
   return (
     <section className="portfolio mt-32">
-      <h2 className="font-bold text-hdTxt text-4xl text-center">Portfolio</h2>
+      <h2 className="font-bold text-hdTxt text-3xl lg:text-4xl text-center">Portfolio</h2>
       <p className="text-txt text-center max-w-full lg:w-[600px] mx-auto pt-3">Here are some of the projects I've built to showcase my expertise</p>
 
       <ul className="portfolio__navigator flex items-center gap-3 lg:gap-10 justify-center mt-6 flex-wrap">

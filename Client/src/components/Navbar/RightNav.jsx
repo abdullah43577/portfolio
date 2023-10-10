@@ -19,12 +19,12 @@ export default function RightNav() {
       </section>
 
       <section
-        className={`icons w-[30%] mx-auto flex flex-col items-center justify-start gap-4 lg:gap-8 absolute top-[10vh] right-0 bg-modalBg h-screen ${
+        className={`icons w-[20%] mx-auto flex flex-col items-center justify-start gap-4 lg:gap-8 absolute top-[10vh] right-0 bg-modalBg h-screen ${
           toggle.mainNav ? 'translate-x-0' : 'translate-x-full'
         } lg:bg-transparent lg:static lg:w-full lg:translate-x-0`}
       >
         <NavLink to="/" href="#" className="social__icon__facebook p-2 rounded-full hover:bg-cta">
-          <img src={homeIcon} alt="home icon" className="w-[26px] lg:w-auto" />
+          <img src={homeIcon} alt="home icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
         <NavLink to="/services" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
@@ -32,19 +32,19 @@ export default function RightNav() {
         </NavLink>
 
         <NavLink to="/cv" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
-          <img src={cvIcon} alt="cv icon" className="w-[26px] lg:w-auto" />
+          <img src={cvIcon} alt="cv icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
         <NavLink to="/portfolio" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
-          <img src={portfolioIcon} alt="portfolio icon" className="w-[26px] lg:w-auto" />
+          <img src={portfolioIcon} alt="portfolio icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
         <NavLink to="/blogs" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
-          <img src={blogIcon} alt="blog icon" className="w-[26px] lg:w-auto" />
+          <img src={blogIcon} alt="blog icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
         <NavLink to="/contact" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
-          <img src={contactIcon} alt="contact icon" className="w-[26px] lg:w-auto" />
+          <img src={contactIcon} alt="contact icon" className="w-[15px] lg:w-auto" />
         </NavLink>
       </section>
 

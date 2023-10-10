@@ -26,16 +26,16 @@ export default function LeftNav() {
         <section className="profile__name text-hdTxt my-3 font-bold">Abdullah Ayoola</section>
         <section className="profile__stack text-txt text-xs mb-3">Fullstack Developer</section>
         <section className="socials flex items-center justify-center gap-3">
-          <a href="#" className="social__icon__facebook bg-cta p-2 rounded-full">
+          <a href="https://web.facebook.com/profile.php?id=100070875720063" target="_blank" className="social__icon__facebook bg-cta p-2 rounded-full">
             <img src={iconFB} alt="facebook icon" />
           </a>
-          <a href="#" className="social__icon__instagram bg-cta p-2 rounded-full">
+          <a href="https://www.instagram.com/officialayo540/" target="_blank" className="social__icon__instagram bg-cta p-2 rounded-full">
             <img src={iconIG} alt="Instagram icon" />
           </a>
-          <a href="#" className="social__icon__twitter bg-cta p-2 rounded-full">
+          <a href="https://twitter.com/officialayo540" target="_blank" className="social__icon__twitter bg-cta p-2 rounded-full">
             <img src={iconXcorp} alt="twitter icon" />
           </a>
-          <a href="#" className="social__icon bg-cta p-2 rounded-full">
+          <a href="https://www.linkedin.com/in/ayo540/" target="_blank" className="social__icon bg-cta p-2 rounded-full">
             <img src={iconLinkedin} alt="Linkedin icon" />
           </a>
         </section>

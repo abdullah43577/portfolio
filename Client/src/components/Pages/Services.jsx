@@ -3,7 +3,7 @@ import codingIcon from '/icons/coding.png';
 export default function Services() {
   return (
     <section className="services mt-32">
-      <h2 className="font-bold text-hdTxt text-4xl text-center">My Services</h2>
+      <h2 className="font-bold text-hdTxt text-3xl lg:text-4xl text-center">My Services</h2>
       <p className="text-txt text-center max-w-full lg:w-[600px] mx-auto pt-3">I offer a range of services to help you bring your web software projects to life. With a passion for crafting robust and user-friendly applications.</p>
 
       <section className="services__container flex items-center justify-center flex-wrap my-8 gap-4">
