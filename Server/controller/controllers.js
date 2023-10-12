@@ -47,11 +47,13 @@ const send_mail = async (req, res) => {
 
 const upload_blog_post = async (req, res) => {
   try {
-    const { title, body } = req.body;
+    const { thumbnail, title, body } = req.body;
 
-    if (!title || !body) return res.status(400).json({ status: 'Error, bad request', message: `please make sure you're uploading a valid title (string) and body` });
+    if (!thumbnail || !title || !body) return res.status(400).json({ status: 'Error, bad request', message: `please make sure you're uploading a valid title (string) and body` });
 
-    const blog = new Blog({ title, body });
+    // upload thumbnail to cloudinary
+
+    const blog = new Blog({ thumbnail, title, body });
     await Blog.save();
 
     res.status(201).json({ blog });

@@ -5,6 +5,7 @@ import iconLinkedin from '/icons/Icons-linkedin.png';
 import profileIMG from '/icons/profile image2.png';
 import statusIcon from '/icons/Available.png';
 import extrasIcon from '/icons/Icons.png';
+import CV from '../../assets/CV Resume.pdf';
 import frame from '/icons/Frame.png';
 import { useContext } from 'react';
 import { NavContext } from '../RootLayout';
@@ -160,10 +161,12 @@ export default function LeftNav() {
 
       <section className="border-b border-background my-6 w-full h-[3px]"></section>
 
-      <button className="bg-cta w-full py-2 flex items-center justify-center gap-2">
-        <span className="text-hdTxt font-bold">DOWNLOAD CV</span>
-        <img src={frame} alt="download icon" />
-      </button>
+      <a href={CV} download="Abdullah Ayoola's CV">
+        <button className="bg-cta w-full py-2 flex items-center justify-center gap-2">
+          <span className="text-hdTxt font-bold">DOWNLOAD CV</span>
+          <img src={frame} alt="download icon" />
+        </button>
+      </a>
     </nav>
   );
 }
