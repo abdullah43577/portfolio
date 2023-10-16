@@ -28,6 +28,29 @@ body {
   overflow-x: hidden;
 }
 
+/* custom scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+  background: #f0f0f6;
+}
+
+/* handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .toggle__bar div {
   width: 22px;
   height: 3px;
@@ -65,6 +88,26 @@ div.img__container:hover img {
   transform: translateY(110%);
   transition: transform 0.5s ease-in-out;
   opacity: 0.8;
+}
+
+label[for='file'] {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+input[type='file'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
 }
 
 /* section.Html div.rounded-md > div {

@@ -17,7 +17,7 @@ const router = createBrowserRouter(
       <Route path="education" element={<Education />} />
       <Route path="blogs">
         <Route index element={<Blog />} />
-        <Route path="upload" element={<Upload />} />
+        {/* <Route path="upload" element={<Upload />} /> */}
       </Route>
       <Route path="portfolio" element={<Portfolio />} />
       <Route path="contact" element={<Contact />} />

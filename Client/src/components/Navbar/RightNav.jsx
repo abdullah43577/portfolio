@@ -1,6 +1,6 @@
 import homeIcon from '/icons/Home.png';
 import servicesIcon from '/icons/Services.png';
-import cvIcon from '/icons/cv.png';
+// import cvIcon from '/icons/cv.png';
 import portfolioIcon from '/icons/Portfolio.png';
 import contactIcon from '/icons/Contact.png';
 import blogIcon from '/icons/Blog.png';
@@ -23,27 +23,27 @@ export default function RightNav() {
           toggle.mainNav ? 'translate-x-0' : 'translate-x-full'
         } lg:bg-transparent lg:static lg:w-full lg:translate-x-0`}
       >
-        <NavLink to="/" href="#" className="social__icon__facebook p-2 rounded-full hover:bg-cta">
+        <NavLink to="/" href="#" className="p-2 rounded-full hover:bg-cta">
           <img src={homeIcon} alt="home icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
-        <NavLink to="/services" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
+        <NavLink to="/services" className="bg-background p-2 rounded-full hover:bg-cta">
           <img src={servicesIcon} alt="services icon" />
         </NavLink>
 
-        <NavLink to="/cv" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
+        {/* <NavLink to="/cv" className="bg-background p-2 rounded-full hover:bg-cta">
           <img src={cvIcon} alt="cv icon" className="w-[15px] lg:w-auto" />
-        </NavLink>
+        </NavLink> */}
 
-        <NavLink to="/portfolio" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
+        <NavLink to="/portfolio" className="bg-background p-2 rounded-full hover:bg-cta">
           <img src={portfolioIcon} alt="portfolio icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
-        <NavLink to="/blogs" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
+        <NavLink to="/blogs" className="bg-background p-2 rounded-full hover:bg-cta">
           <img src={blogIcon} alt="blog icon" className="w-[15px] lg:w-auto" />
         </NavLink>
 
-        <NavLink to="/contact" className="social__icon__facebook bg-background p-2 rounded-full hover:bg-cta">
+        <NavLink to="/contact" className="bg-background p-2 rounded-full hover:bg-cta">
           <img src={contactIcon} alt="contact icon" className="w-[15px] lg:w-auto" />
         </NavLink>
       </section>

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Blog = require('../model/Blog');
 const nodemailer = require('nodemailer');
+const { cloudinary } = require('../utils/cloudinary');
 
 const test = (req, res) => {
   res.status(200).json({ message: 'Hello World' });
@@ -42,6 +43,22 @@ const send_mail = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ message: 'Error sending message', err });
+  }
+};
+
+const upload_image = async (req, res) => {
+  try {
+    const { thumbnail } = req.body;
+    if (!thumbnail) return res.status(400).json({ message: 'Bad Request! Please upload the image correctly!' });
+
+    const data = await cloudinary.uploader.upload(thumbnail, {
+      upload_preset: 'blog_thumbnails',
+    });
+
+    const imageURL = data.secure_url;
+    res.status(201).json({ imageURL });
+  } catch (err) {
+    res.status(500).json({ message: 'Error uploading image to cloudinary', err });
   }
 };
 
@@ -90,4 +107,4 @@ const get_all_blogs = async (req, res) => {
   }
 };
 
-module.exports = { test, send_mail, upload_blog_post, get_blog_post, get_all_blogs };
+module.exports = { test, send_mail, upload_image, upload_blog_post, get_blog_post, get_all_blogs };

@@ -18,3 +18,20 @@ export const alert = function (param1, param2) {
     title: param2,
   });
 };
+
+export const base64EncodedImage = function (file) {
+  return new Promise((resolve, reject) => {
+    try {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = function () {
+        resolve(reader.result);
+      };
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+export const SERVER = 'https://portfolio-api-esvo.onrender.com/api'; //
+// http://localhost:8080/api

@@ -26,7 +26,8 @@ export default function Education() {
           </article>
         </section>
 
-        <section className="edu__two flex flex-col lg:flex-row justify-between my-6 border-b border-gray-300 pb-6">
+        {/* my-6, border-b */}
+        <section className="edu__two flex flex-col lg:flex-row justify-between mt-6 border-gray-300 pb-6">
           <section className="title">
             <h3 className="text-hdTxt font-bold">Javascript course</h3>
             <div className="flex items-center gap-3 mt-3">
@@ -46,7 +47,7 @@ export default function Education() {
           </article>
         </section>
 
-        <section className="edu__three flex flex-col lg:flex-row justify-between my-6">
+        {/* <section className="edu__three flex flex-col lg:flex-row justify-between my-6">
           <section className="title">
             <h3 className="text-hdTxt font-bold">Backend Internship - (NodeJS)</h3>
             <div className="flex items-center gap-3 mt-3">
@@ -59,7 +60,7 @@ export default function Education() {
             <h3 className="text-hdTxt font-bold">Certificate of Participation</h3>
             <p className="text-txt mt-3">Certificate of The Complete Javascript Course: From Zero to Expert! from Udemy. This certification is earned by completing ~ 70 hours of coding challenges and projects.</p>
           </article>
-        </section>
+        </section> */}
       </section>
     </section>
   );

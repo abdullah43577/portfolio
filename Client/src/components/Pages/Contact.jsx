@@ -2,7 +2,8 @@ import { useState } from 'react';
 import location from '/icons/location.png';
 import mail from '/icons/mail.png';
 import phone from '/icons/Mobile.png';
-import { alert } from '../helper';
+import { alert } from '../helper/helper';
+import { SERVER } from '../helper/helper';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ export default function Contact() {
 
     try {
       setBtnTxt('SENDING...');
-      const res = await fetch('https://portfolio-api-esvo.onrender.com/api/send_mail', {
+      const res = await fetch(`${SERVER}/send_mail`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
