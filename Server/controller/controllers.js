@@ -66,7 +66,7 @@ const upload_blog_post = async (req, res) => {
   try {
     const { thumbnail, title, body } = req.body;
 
-    if (!thumbnail || !title || !body) return res.status(400).json({ status: 'Error, bad request', message: `please make sure you're uploading a valid title (string) and body` });
+    if (!thumbnail || !title || !body) return res.status(400).json({ status: 'Error, bad request', message: `please make sure you've uploaded a valid thumbnail, title, and body` });
 
     // upload thumbnail to cloudinary
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
-import { base64EncodedImage, SERVER } from '../helper/helper';
+import { base64EncodedImage, SERVER, alert } from '../helper/helper';
+import parse from 'html-react-parser';
 
 export default function Upload() {
   const [value, setValue] = useState('');
@@ -11,7 +11,6 @@ export default function Upload() {
     thumbnail: '',
   });
 
-  // const [renderHtml, setRenderHtml] = useState(false);
   const [htmlContent, setHtmlContent] = useState('');
 
   const handleInputChange = function (e) {
@@ -19,11 +18,8 @@ export default function Upload() {
     setInputState((prevValue) => ({ ...prevValue, [name]: value }));
   };
 
-  useEffect(() => console.log('inputState', inputState), [inputState]);
-
   const handleFileSelect = function (e) {
     const file = e.target.files[0];
-    console.log('file', file);
 
     setInputState((prevValue) => ({ ...prevValue, thumbnail: file }));
   };
@@ -49,8 +45,10 @@ export default function Upload() {
           if (!res.ok) throw new Error('Something went wrong');
 
           setInputState((prevValue) => ({ ...prevValue, thumbnail: data.url }));
+          alert('success', 'Thumbnail successfully uploaded!');
         } catch (err) {
           console.log(err);
+          alert('error', 'Error uploading Thumbnail!');
         }
       };
 
@@ -59,18 +57,13 @@ export default function Upload() {
   }, [inputState.thumbnail]);
 
   const renderHtmlInfo = function () {
-    // Set the HTML content using quill-delta-to-html library
-    const converter = new QuillDeltaToHtmlConverter(value, { classPrefix: false });
-    console.log('converter', converter);
-
-    const html = converter.convert();
-    console.log('html', html);
-    setHtmlContent(html);
+    setHtmlContent(parse(value));
   };
 
-  useEffect(() => console.log('html', htmlContent), [htmlContent]);
-
   const publishArticle = function () {
+    const isInvalid = Object.keys(FormData).includes('');
+    if (isInvalid) return alert('error', 'Please make sure you filled all the required fields correctly');
+
     try {
       console.log('send blog to the backend for upload');
     } catch (err) {
@@ -103,7 +96,7 @@ export default function Upload() {
         </button>
       </div>
 
-      {htmlContent ? <div dangerouslySetInnerHTML={{ __html: htmlContent }} /> : ''}
+      {htmlContent ? <div>{htmlContent}</div> : null}
     </section>
   );
 }
@@ -111,28 +104,8 @@ export default function Upload() {
 // Todo
 // * create folder for upload in cloudinary ✅
 // * ask chatGPT why image conversion to binary isn't working ✅
-// * implement conversion from quill-html to DOM readable content
+// * implement conversion from quill-html to DOM readable content ✅
 // * ask chatGPt how it's possible to implement and sytle code formatted contents in react-quill
 // * ask chatGPT how it's possible to implement blocking of the upload route for only me as the owner of the portfolio website
 
 // ? =================================================================================
-
-// Todo 2 (simulation of the blog flow)
-// * on successfully converting thumbnail to binary, send a post request to the backend to upload image to cloudinary and retrieve the live url.
-
-// * update corresponding states in the client side to reflect changes of the newly gotten url.
-
-// * after figuring out how to insert custom code blocks in react-quill, send filled data to the backend using a post request.
-
-// * on the homepage where we have 3 blogs to be shown, on load of the page, make a get request to the backend to give you just 3 blogs e.g.
-
-// * const blog = await Blog.find({}) => returns all blogs
-// * const newArr = blog.slice(-1); return newArr
-// * loop through in the client side and render the blogs, truncate the body descritipon text shown on the homepage where on click on any of the blog takes them to a page with their corresponding ID.
-
-// * ideally when looping through to render the blogs on the homepage, you'd have made the ID attribute equal to the specific blog ID
-
-// * the page with the corresponding ID, showcases the full detail of that blog
-// ? there'd also be a page that showcases the whole blogs, you'll be working with pagination to avoid cluttering and several blogs on the page
-
-// ? make sure this route isn't accessible by a 3rd party(ask chatGPT of the best way to implement this, I'm personally thinking JSON web token, but still ask chatGPT for the right answer to this)

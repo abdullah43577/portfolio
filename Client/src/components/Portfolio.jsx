@@ -41,7 +41,7 @@ export default function Portfolio() {
       'All stacks': false,
       VanillaJS: false,
       ReactJS: false,
-      NextJS: false,
+      // NextJS: false,
       NodeJS: false,
     });
 
@@ -91,9 +91,9 @@ export default function Portfolio() {
         <li className={`cursor-pointer ${filterTabs.ReactJS ? 'filter__active' : ''} hover:text-cta`} onClick={() => filterArr('REACT', 'ReactJS')}>
           React
         </li>
-        <li className={`cursor-pointer ${filterTabs.NextJS ? 'filter__active' : ''} hover:text-cta`} onClick={() => filterArr('NextJS', 'NextJS')}>
+        {/* <li className={`cursor-pointer ${filterTabs.NextJS ? 'filter__active' : ''} hover:text-cta`} onClick={() => filterArr('NextJS', 'NextJS')}>
           NextJS
-        </li>
+        </li> */}
         <li className={`cursor-pointer ${filterTabs.NodeJS ? 'filter__active' : ''} hover:text-cta`} onClick={() => filterArr('nodeJS', 'NodeJS')}>
           NodeJS
         </li>

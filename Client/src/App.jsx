@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Pages/Contact';
 import Blog from './components/Pages/Blog';
 import Upload from './components/Pages/Upload';
+import NotFound from './components/Pages/NotFound';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,8 @@ const router = createBrowserRouter(
       </Route>
       <Route path="portfolio" element={<Portfolio />} />
       <Route path="contact" element={<Contact />} />
+      // 404 Page
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

@@ -15,7 +15,7 @@ export default [
     githubURL: 'https://github.com/abdullah43577/Movie-Entertainment-WebApp',
     liveURL: 'https://flicksondemand.netlify.app/',
     content: 'Explore the world of movies and TV shows with my captivating web app. Find, discover, and enjoy your favorite titles with ease. Sharpening my React skills while creating an immersive experience for movie enthusiasts.',
-    techStacks: ['HTML', 'REACT', 'SASS', 'TAILWIND', 'API'],
+    techStacks: ['HTML', 'REACT', 'SASS', 'TAILWIND', 'API', 'nodeJS'],
     title: 'Flicks On Demand - Movie Entertainment Web App',
   },
 
